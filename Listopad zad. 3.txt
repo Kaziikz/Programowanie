@@ -1,0 +1,97 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdlib.h>
+using namespace std;
+
+//3.1.Napisaæ metodê void NewLine().Powinna ona wypisaæ na ekran pojedyncz¹ pust¹ liniê.U¿yæ tej metodê w main().
+
+void newLine()
+{
+	cout << endl;
+}
+
+//3.2.Napisaæ metodê void NewLines(int count).Powinna ona wypisaæ tyle nowych linii, ile zosta³o podanych W PARAMETRZE count(nale¿y
+//	u¿yæ pêtli for).U¿yæ metodê w main()
+
+void newLines(int x)
+{
+	int i;
+	for (int i = 0; i < x; i++)
+	{
+		cout << endl;
+	}
+}
+
+//3.3.Napisaæ metodê void WriteBiggerNumber(int x, int y).Metoda powinna pobraæ 2 parametry i zwróciæ wiêkszy z nich.Wykorzystaæ
+//funckjê w metodzie main().UWAGA - pobieranie liczb od u¿ytkownika powinno odbyæ siê w funkcji main(), a NIE w WriteBiggerNumber!Do
+//funkcji nale¿y jedynie przes³aæ pobrane wczeœniej parametry.
+
+int WriteBiggerNumber(int x, int y)
+{
+	if (x > y)
+		return x;
+	else if (y > x)
+		return y;
+	else
+		return NULL;
+}
+
+//3.4.Napisaæ metodê Multiply(int x, int y).Metoda powinna ZWRÓCIÆ(s³owo kluczowe return) iloczyn dwóch parametrów.Uwaga!Metoda
+//NIE POWINNA wypisywaæ wyniku - powinien on byæ wyœwietlony w funkcji main!
+
+int Multiply(int x, int y)
+{
+	return x * y;
+}
+
+
+int main(void)
+{
+	int k = 1;
+	switch (k)
+	{
+
+	case 1:
+	{
+		cout << "Linia";
+		newLine();
+		cout << "Odstepu";
+		newLine();
+		newLine();
+	}
+	case 2:
+	{
+		cout << "5 Linii";
+		newLines(5);
+		cout << "Odstepu";
+		newLines(5);
+	}
+	case 3:
+	{
+		int x, y;
+		cout << "Podaj x, potem y";
+		newLine();
+		std::cin >> x;
+		newLine();
+		std::cin >> y;
+		cout << "Wieksza liczba to" << endl << WriteBiggerNumber(x, y) << endl;
+		newLines(5);
+	}
+	case 4:
+	{
+		int x, y;
+		cout << "Podaj x, potem y";
+		newLine();
+		std::cin >> x;
+		newLine();
+		std::cin >> y;
+		newLine();
+		cout << "Wynik iloczynu liczb to:" << endl;
+		cout << Multiply(x, y);
+		newLine();
+	}
+	}
+	system("pause");
+	return 0;
+}

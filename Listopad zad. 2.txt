@@ -1,0 +1,240 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdlib.h>
+#include <string>
+using namespace std;
+
+
+void newLine()
+{
+	cout << endl;
+}
+
+void newLines(int x)
+{
+	int i;
+	for (int i = 0; i < x; i++)
+	{
+		cout << endl;
+	}
+}
+
+int WriteBiggerNumber(int x, int y)
+{
+	if (x > y)
+		return x;
+	else if (y > x)
+		return y;
+	else
+		return NULL;
+}
+
+int Multiply(int x, int y)
+{
+	return x * y;
+}
+
+
+int main() {
+	int k = 1;
+	switch (k)
+	{
+
+	//2.1.Zapoznaæ siê z pêtl¹ while.Pêtla ta s³u¿y do wielokrotnego wykonania fragmentu kodu przez NIEZNAN¥ Z GÓRY iloœæ razy.Pêtla
+	//wykonuje siê zawsze, jeœli warunek jest prawdziwy(ewaluowany do true).Napisaæ pêtlê, w któej u¿ytkownik podaje liczbê x.Nale¿y
+	//wyœwietliæ tê liczbê.Je¿eli u¿ytkownik poda 0, nale¿y zakoñczyæ program.
+
+	case 1: {
+
+		int x = 1;
+		while (x != 0)
+		{
+			cout << "Podaj liczbe, jezeli podasz 0, program sie zakonczy" << endl;
+			cin >> x;
+			newLine();
+			cout << int(x);
+			newLine();
+		}
+	}
+
+	//2.2.Przerobiæ kalkulator z zadania 1.6.Teraz po ka¿dym dzia³aniu program powinien spytaæ u¿ytkownika, czy ten chce powtórzyæ
+	//wszystko od pocz¹tku.Jeœli tak - restartujemy kalkulator i zaczynamy od nowa.Jeœli nie - koñczymy program.
+
+	case 2: {
+		float x = 0, y = 0;
+		string znak;
+		int k = 1;
+		while (k != 0)
+		{
+			cout << "Kalkulator" << endl << endl;
+			cout << "Wpisz 0 aby zakonczyc, 1 aby kontynuowac" << endl;
+			cin >> k;
+			newLine();
+			if (k)
+			{
+				cout << "Podaj pierwsza wartosc" << endl;
+				cin >> x;
+				cout << "Podaj dzialanie" << endl;
+				std::cin >> znak;
+				cout << "Podaj druga wartosc" << endl;
+				cin >> y;
+				newLine();
+				if (znak == "+")
+				{
+					cout << x + y << endl;
+
+				}
+				if (znak == "-")
+				{
+
+					cout << x - y << endl;
+
+				}
+				if (znak == "*")
+				{
+					cout << x * y << endl;
+
+				}
+				if (znak == "/")
+				{
+					cout << x / y << endl;
+
+				}
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+			newLine();
+
+	//2.3.Pobraæ od u¿ytkownika liczbê x.Nale¿y wyœwietliæ wszystkie kolejne potêgi liczby x.Zakoñczyæ program, kiedy liczba przekroczy 100
+	//000.
+
+	case 3: {
+		int a, b, j = 0;
+		cout << "Podaj liczbe do wyswietlenia kolenych poteg tej liczby. Gdy wartosc przekroczy 100000 - koniec" << endl;
+		cin >> a;
+		newLine();
+		b = a;
+		while (a < 100000)
+		{
+			a = a * b;
+			cout << a << endl;
+			j++;
+			newLine();
+		}
+	}
+
+	//2.4.Pobraæ od u¿ytkownika liczbê x.Jeœli liczba jest niedodatnia - nale¿y zakoñczyæ program.Nastêpnie nale¿y wyœwietlaæ kolejno(w
+	//nowej linii) wszystkie liczby mniejsze od x, a¿ osi¹gniête zostanie 0.
+
+	case 4:
+	{
+		int x, y = 1;
+		cout << "Podaj liczbe x, program poda wszystkie liczby mniejsze o 1 az do 0 od x. Gdy podasz liczbe niedodatnia, program sie nie wykona" << endl;
+		cin >> x;
+		newLine();
+		while (x > 0) {
+			x = x - y;
+			cout << x << endl;
+		}
+		newLine();
+	}
+
+	//2.5.Zapoznaæ siê z instrukcjami continue; i break; .Pierwsza s³u¿y do zakoñczenia iteracji i przejœcia do nastêpnej, a druga natychmiast
+	//koñczy pêtlê.Przerobiæ program z zadania 1.4, aby wyœwietla³ tylko parzyste liczby(u¿yæ if oraz continue).Jeœli liczba wynosi 40, nale¿y
+	//wyjœæ z pêtli i zakoñczyæ program.
+
+	case 5:
+	{
+		int x, y = 1;
+		cout << "Podaj liczbe x. Program poda liczby parzyste, wieksze od x az do 40." << endl;
+		cin >> x;
+		newLine();
+		while (x <= 40) {
+			x = x + y;
+			if (x % 2 == 0)
+			{
+				cout << x << endl;
+				continue;
+			}
+		}
+		newLine();
+	}
+
+	//2.6.Zapoznaæ siê z pêtl¹ for.Pêtla s³u¿y do wykonania danego fragmentu kodu ZNAN¥ Z GÓRY okreœlon¹ iloœæ razy.Uwaga - ka¿d¹ pêtlê
+	//for mo¿na zast¹piæ pêtl¹ while i wzajemnie.Zwyczajowo obowiazuje zasada, ¿e jeœli iloœæ iteracji jest znana - u¿ywamy for, a jeœli nie jest
+	//znana(zale¿y od u¿ytkownika lub jakiegoœ stanu zewnêtrznego) - u¿ywamy pêtli while.Pêtla for sk³ada siê z : ZMIENNEJ ITERACYJNEJ,
+	//czyli stanu pocz¹tkowego pêtli, np. int i = 0. Nastêpnie WARUNKU ZAKOÑCZENIA PÊTLI, np.i < 10. Nastêpnie OPERACJI WYKONYWANEJ
+	//PO KA¯DEJ ITERACJI - zazwyczaj jest to zwiêkszenie iteratora o 1, czyli i = i + 1, b¹dŸ w skrócie i++.Napisaæ pêtlê for, która wyœwietli cyfry
+	//od 0 do 9.
+
+	case 6:
+	{
+		cout << "Petla for, wyswietli od 0 do 9" << endl;
+		int l = 0;
+		for (l = 0; l <= 9; l++)
+		newLine();
+		{
+			cout << l << endl;
+		}
+		newLine();
+	}
+
+	//2.7.Pobraæ od u¿ytkownika liczby x i y.Zak³adamy, ¿e y > x(zawsze, nie musimy tego sprawdzaæ).Za pomoc¹ pêtli for wypisaæ liczby
+	//miêdzy x a y(do przemyœlenia - co jest stanem pocz¹tkowym, a co warunkiem zakoñczenia pêtli ? )
+
+	case 7:
+	{
+		int n, m;
+		cout << "Podaj wartosc dla n, pozniej dla m. m > n, program poda wartosci wieksze od n, ale mniejsze od m" << endl;
+		cin >> n;
+		newLine();
+		cin >> m;
+		newLine();
+		cout << "Wartosci pomiedzy n i m to:" << endl;
+		for (int i = 1; n + i != m; i++)
+		{
+			cout << n + i << endl;
+		}
+		newLine();
+	}
+
+	//2.8. Pobraæ od u¿ytkownika liczbê x. Za pomoc¹ pêtli for wypisaæ wszystkie liczby mniejsze od x, ale wiêksze ni¿ 0.
+
+	case 8:
+	{
+		int x;
+		cout << "Podaj x, petla poda wszystkie liczby calkowite mniejsze od x az do 0" << endl;
+		cin >> x;
+		newLine();
+		for (int i = 0; x - i != 0; i++)
+		{
+			cout << x - i << endl;
+		}
+		newLine();
+	}
+
+	//2.9. Pobraæ od u¿ytkownika liczbê x. Za pomoc¹ pêtli for wypisywaæ CO TRZECI¥ liczbê wiêksz¹ od x. Pêtla powinna siê zakoñczyæ, jeœli
+	//liczba przekroczy 100. Uwaga - proszê nie u¿ywaæ operacji continue i break, a sterowaæ tylko parametrami pêtli.
+
+	case 9:
+	{
+		int x;
+		cout << "Podaj x, petla poda co trzecia liczbe az do 100" << endl;
+		cin >> x;
+		newLine();
+		for (int i = x + 3; i < 100; i = i + 3)
+		{
+			cout << i << endl;
+		}
+		newLine();
+	}
+	{
+		system("pause");
+	}
+	}
+}
